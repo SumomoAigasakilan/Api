@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         RecyclerView reciclerView= findViewById(R.id.recicler);
-        
-        LinearLayoutManager manager= new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
+
+        LinearLayoutManager manager= new LinearLayoutManager(this);
 
         //establecemos la orientacion del recicler
         reciclerView.setLayoutManager(manager);
@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
                             Pelicula pelicula = new Pelicula(
                                     itemPelicula.getString("original_title"),
                                     itemPelicula.getString("backdrop_path"),
+                                    itemPelicula.getString("poster_path"),
                                     itemPelicula.getString("overview"),
                                     itemPelicula.getString("release_date"),
                                     itemPelicula.getDouble("vote_average")

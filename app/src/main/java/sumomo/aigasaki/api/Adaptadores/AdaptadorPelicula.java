@@ -1,5 +1,6 @@
 package sumomo.aigasaki.api.Adaptadores;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
+import sumomo.aigasaki.api.DetallePelicula;
 import sumomo.aigasaki.api.R;
 import sumomo.aigasaki.api.modelo.Pelicula;
 
@@ -40,7 +42,10 @@ public class AdaptadorPelicula extends RecyclerView.Adapter<AdaptadorPelicula.Vi
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView titulo;
         ImageView portada;
+
+
         public ViewHolder(@NonNull View itemView) {
+            //hace el enlace con la ventana del donde tenemos el dise;o de las carteleras
             super(itemView);
             titulo=itemView.findViewById(R.id.txtTitulo);
             portada= itemView.findViewById(R.id.ivImagen);
@@ -64,6 +69,7 @@ public class AdaptadorPelicula extends RecyclerView.Adapter<AdaptadorPelicula.Vi
     }
 
     @Override
+
     public void onBindViewHolder(@NonNull AdaptadorPelicula.ViewHolder holder, int position) {
         //Establecemos las acciones que se realizara y tambien se establecen los valores a los objetos
        Pelicula pelicula= peliculas.get(position);
@@ -73,10 +79,25 @@ public class AdaptadorPelicula extends RecyclerView.Adapter<AdaptadorPelicula.Vi
 
         Glide
                 .with(holder.itemView)
+                //accedemos a la lista
                 .load(pelicula.getBackdrop_path())
-                .centerCrop()
+                //le decimos que vamos a traer
                 .into(holder.portada);
-        holder.titulo.setText(pelicula.getOriginal_title());
+                //donde lo colocaremos
+
+        String nombre =pelicula.getOriginal_title();
+
+        holder.titulo.setText(nombre.length() > 30 ? nombre.substring(0, 30)+"..." : nombre);
+        //coloque la variable titulo donde extraemos el texto de un getOriginal
+
+        holder.itemView.setOnClickListener((v)->{
+            Intent detalle = new Intent(holder.itemView.getContext(), DetallePelicula.class);
+            holder.itemView.getContext().startActivity(detalle);
+            detalle.putExtra("titulo",nombre);
+            detalle.putExtra("descripcion",pelicula.getOverview());
+
+           Log.i("accion",nombre);
+        });
     }
 
 
