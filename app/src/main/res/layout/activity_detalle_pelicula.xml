@@ -7,7 +7,7 @@
     tools:context=".DetallePelicula">
 
     <TextView
-        android:id="@+id/txttitulo"
+        android:id="@+id/txt_titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -20,15 +20,15 @@
         app:layout_constraintVertical_bias="0.238" />
 
     <TextView
-        android:id="@+id/txtdescripcion"
+        android:id="@+id/txt_descripcion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         android:layout_marginHorizontal="15dp"
+        android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txttitulo"
+        app:layout_constraintTop_toBottomOf="@+id/txt_titulo"
         app:layout_constraintVertical_bias="0.12" />
 </androidx.constraintlayout.widget.ConstraintLayout>

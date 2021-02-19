@@ -37,12 +37,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         RecyclerView reciclerView= findViewById(R.id.recicler);
-
         LinearLayoutManager manager= new LinearLayoutManager(this);
 
-        //establecemos la orientacion del recicler
-        reciclerView.setLayoutManager(manager);
 
+        reciclerView.setLayoutManager(manager);
+//establecemos la orientacion del recicler
         RequestQueue queue = Volley.newRequestQueue(this);
         String url = "https://api.themoviedb.org/3/movie/popular?api_key=145d71637c36f2863c16bfb154c5046c&language=en-US&page=1";
 
@@ -70,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
 
                             listaTemporal.add(pelicula);
                         }
-
                         AdaptadorPelicula adapter= new AdaptadorPelicula(listaTemporal);
 
                         reciclerView.setAdapter(adapter);

@@ -18,6 +18,7 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 
 import sumomo.aigasaki.api.DetallePelicula;
+import sumomo.aigasaki.api.DetallePelicula2;
 import sumomo.aigasaki.api.R;
 import sumomo.aigasaki.api.modelo.Pelicula;
 
@@ -91,12 +92,16 @@ public class AdaptadorPelicula extends RecyclerView.Adapter<AdaptadorPelicula.Vi
         //coloque la variable titulo donde extraemos el texto de un getOriginal
 
         holder.itemView.setOnClickListener((v)->{
-            Intent detalle = new Intent(holder.itemView.getContext(), DetallePelicula.class);
-            holder.itemView.getContext().startActivity(detalle);
+            Intent detalle = new Intent(holder.itemView.getContext(), DetallePelicula2.class);
             detalle.putExtra("titulo",nombre);
             detalle.putExtra("descripcion",pelicula.getOverview());
+            detalle.putExtra("portada", pelicula.getBackdrop_path());
+            detalle.putExtra("poster",pelicula.getposter_path());
 
-           Log.i("accion",nombre);
+            holder.itemView.getContext().startActivity(detalle);
+
+
+           Log.i("pelicula",pelicula.getposter_path());
         });
     }
 

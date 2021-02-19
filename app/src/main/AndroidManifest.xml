@@ -11,7 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Api">
-        <activity android:name=".DetallePelicula"></activity>
+        <activity
+            android:name=".DetallePelicula2"
+            android:label="@string/title_activity_detalle_pelicula2"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.Api.NoActionBar"></activity>
+
+        <activity android:name=".DetallePelicula" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

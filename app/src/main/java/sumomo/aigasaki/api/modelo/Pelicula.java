@@ -28,7 +28,7 @@ public class Pelicula {
     }
 
     public String getposter_path() {
-        return poster_path;
+        return "http://image.tmdb.org/t/p/original"+poster_path;
     }
 
     public String getOverview() {

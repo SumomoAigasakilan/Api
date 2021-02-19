@@ -13,5 +13,6 @@ public class DetallePelicula extends AppCompatActivity {
         setContentView(R.layout.activity_detalle_pelicula);
 
 
+
     }
 }
