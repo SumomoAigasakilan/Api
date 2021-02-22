@@ -97,11 +97,13 @@ public class AdaptadorPelicula extends RecyclerView.Adapter<AdaptadorPelicula.Vi
             detalle.putExtra("descripcion",pelicula.getOverview());
             detalle.putExtra("portada", pelicula.getBackdrop_path());
             detalle.putExtra("poster",pelicula.getposter_path());
+            detalle.putExtra("puntuacion",pelicula.getVote_average());
+            detalle.putExtra("fecha",pelicula.getRelease_date());
 
             holder.itemView.getContext().startActivity(detalle);
 
 
-           Log.i("pelicula",pelicula.getposter_path());
+          // Log.i("pelicula",pelicula.getposter_path());
         });
     }
 

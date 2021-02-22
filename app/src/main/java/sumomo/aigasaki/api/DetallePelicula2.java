@@ -27,16 +27,21 @@ public class DetallePelicula2 extends AppCompatActivity {
         //Mostrar boton volver a la pesta;a anterior
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         //Enlazamos los objetos
         TextView descripcion2=findViewById(R.id.txt_descripcion);
         ImageView portada=findViewById(R.id.portada);
         ImageView poster=findViewById(R.id.poster);
+        TextView puntuacion=findViewById(R.id.txtpuntuacion);
+        TextView fecha=findViewById(R.id.txtfecha);
 
         //Obtenemos datos enviados
         String dataTitle=getIntent().getExtras().getString("titulo");
         String dataDescripcion=getIntent().getExtras().getString("descripcion");
         String urlImagen= getIntent().getExtras().getString("portada");
         String urlPoster=getIntent().getExtras().getString("poster");
+        String dataFecha=getIntent().getExtras().getString("fecha");
+        Double dataPuntuacion=getIntent().getExtras().getDouble("puntuacion");
 
 
         //colocamos la imagen en el formando donde este colocado, que cargara la variable que trae los datos del Adaptador,
@@ -57,6 +62,9 @@ public class DetallePelicula2 extends AppCompatActivity {
         toolBarLayout.setTitle(dataTitle);
         //Establecemos los valores obtenidos a los TextView
         descripcion2.setText(dataDescripcion);
+
+        puntuacion.setText("puntuacion:" + dataPuntuacion);
+        fecha.setText(String.valueOf("Fecha lanzamiento: " + dataFecha));
 
     }
 }
